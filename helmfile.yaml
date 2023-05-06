@@ -1,0 +1,18 @@
+environments:
+  dev:
+    values:
+      - environment: dev
+  stage:
+    values:
+      - environment: stage
+
+---
+releases:
+  - name: nginx-demo-{{ .Environment.Name }}
+    namespace: {{ .Environment.Name }}
+    chart: ./charts/nginx-demo
+    values:
+      - values.{{ .Environment.Name }}.yaml
+    secrets:
+      - secrets.{{ .Environment.Name }}.enc.yaml
+

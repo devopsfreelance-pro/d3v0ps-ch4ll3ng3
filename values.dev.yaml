@@ -1,0 +1,4 @@
+image:
+  repository: nginxdemos/hello
+  tag: plain-text
+replicaCount: 1
