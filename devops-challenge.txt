@@ -1,10 +1,8 @@
-# d3v0ps-ch4ll3ng3
-
 The Task
 
-Using helmfile create a multistage deployment. Using the following commands, we should be able to deploy the same image, with different configs and settings to the same cluster.
+Using helmfile create a multistage deployment. Using the following commands, we should be able to deploy the same image, with different configs and settings to the same cluster. 
 
-- helmfile -d dev apply
+- helmfile -d dev apply 
 - helmfile -e stage apply
 
 The image to deploy is https://hub.docker.com/r/nginxdemos/hello/
@@ -30,3 +28,5 @@ Deliverables
 
 - A Repository containing the work done.
 - A video explaining the approach and showing how everything works.
+
+   
