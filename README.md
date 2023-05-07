@@ -59,7 +59,7 @@ cd ..
 ```
 Edit the following files:
 
-vim [charts/nginx-demo/values.yaml](./charts/nginx-demo/values.yaml) \
+vim [charts/nginx-demo/values.yaml](./charts/nginx-demo/values.yaml) 
 
 ```yaml
 image:
@@ -68,7 +68,7 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
 ```
-vim [charts/nginx-demo/templates/deployment.yaml](./charts/nginx-demo/templates/deployment.yaml) \
+vim [charts/nginx-demo/templates/deployment.yaml](./charts/nginx-demo/templates/deployment.yaml) 
 
 ```yaml
           env:
@@ -110,9 +110,9 @@ sops --encrypt --pgp 68AFCD306987C84BD62148D2A7F4F618DC55EA8D  secrets.stage.yam
 rm secrets.dev.yaml
 rm secrets.stage.yaml
 ```
-Create helmfile and  custom values \
+Create helmfile and  custom values 
 
-vim [helmfile.yaml](./helmfile.yaml) \
+vim [helmfile.yaml](./helmfile.yaml) 
 
 ```yaml
 environments:
@@ -133,7 +133,7 @@ releases:
     secrets:
       - secrets.{{ .Environment.Name }}.enc.yaml
 ```
-vim [values.stage.yaml](./values.stage.yaml) \
+vim [values.stage.yaml](./values.stage.yaml) 
 
 ```yaml
 image:
