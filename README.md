@@ -65,7 +65,6 @@ vim [charts/nginx-demo/templates/deployment.yaml](./charts/nginx-demo/templates/
 vim [charts/nginx-demo/templates/secret.yaml](./charts/nginx-demo/templates/secret.yaml) 
 
 Create and encrypt secrets
-```
 vim secrets.dev.yaml
 
 ```yaml
@@ -74,6 +73,8 @@ secretValue: my-dev-secret
 vim secrets.stage.yaml
 ```yaml
 secretValue: my-stage-secret
+```
+Encrypt files 
 ```bash
 sops --encrypt --pgp 68AFCD306987C84BD62148D2A7F4F618DC55EA8D secrets.dev.yaml > secrets.dev.enc.yaml
 sops --encrypt --pgp 68AFCD306987C84BD62148D2A7F4F618DC55EA8D  secrets.stage.yaml > secrets.stage.enc.yaml
@@ -81,8 +82,8 @@ rm secrets.dev.yaml
 rm secrets.stage.yaml
 ```
 Create helmfile and  custom values
-vim [helmfile.yaml](./helmfile.yaml)
-vim [values.stage.yaml](./values.stage.yaml)
+vim [helmfile.yaml](./helmfile.yaml) \
+vim [values.stage.yaml](./values.stage.yaml) \
 vim [values.dev.yaml](./values.dev.yaml)
 ## 3. Deployment
 Deploy charts to environments and test result
