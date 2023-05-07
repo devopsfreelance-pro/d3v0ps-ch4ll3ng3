@@ -60,9 +60,9 @@ cd ..
 ```
 Edit the following files:
 
-vim [charts/nginx-demo/values.yaml](./charts/nginx-demo/values.yaml) 
-vim [charts/nginx-demo/templates/deployment.yaml](./charts/nginx-demo/templates/deployment.yaml) 
-vim [charts/nginx-demo/templates/secret.yaml](./charts/nginx-demo/templates/secret.yaml) 
+vim [charts/nginx-demo/values.yaml](./charts/nginx-demo/values.yaml) \
+vim [charts/nginx-demo/templates/deployment.yaml](./charts/nginx-demo/templates/deployment.yaml) \
+vim [charts/nginx-demo/templates/secret.yaml](./charts/nginx-demo/templates/secret.yaml) \
 
 Create and encrypt secrets
 ```
