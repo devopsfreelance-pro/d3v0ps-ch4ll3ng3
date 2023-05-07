@@ -60,10 +60,40 @@ cd ..
 Edit the following files:
 
 vim [charts/nginx-demo/values.yaml](./charts/nginx-demo/values.yaml) \
+
+```yaml
+image:
+  repository: nginxdemos/hello
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+```
 vim [charts/nginx-demo/templates/deployment.yaml](./charts/nginx-demo/templates/deployment.yaml) \
+
+```yaml
+          env:
+            - name: ENVIRONMENT
+              value: {{ .Values.environment }}
+            - name: SECRET_VALUE
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: secretValue
+
+```
 vim [charts/nginx-demo/templates/secret.yaml](./charts/nginx-demo/templates/secret.yaml) 
 
+```yaml
+ApiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Release.Name }}-secret
+type: Opaque
+data:
+  secretValue: {{ .Values.secretValue | b64enc | quote }}
+```
 Create and encrypt secrets 
+
 vim secrets.dev.yaml
 
 ```yaml
@@ -83,8 +113,42 @@ rm secrets.stage.yaml
 Create helmfile and  custom values \
 
 vim [helmfile.yaml](./helmfile.yaml) \
+
+```yaml
+environments:
+  dev:
+    values:
+      - environment: dev
+  stage:
+    values:
+      - environment: stage
+
+---
+releases:
+  - name: nginx-demo-{{ .Environment.Name }}
+    namespace: {{ .Environment.Name }}
+    chart: ./charts/nginx-demo
+    values:
+      - values.{{ .Environment.Name }}.yaml
+    secrets:
+      - secrets.{{ .Environment.Name }}.enc.yaml
+```
 vim [values.stage.yaml](./values.stage.yaml) \
+
+```yaml
+image:
+  repository: nginxdemos/hello
+  tag: plain-text
+replicaCount: 3
+```
 vim [values.dev.yaml](./values.dev.yaml)
+
+```yaml
+image:
+  repository: nginxdemos/hello
+  tag: plain-text
+replicaCount: 1
+```
 ## 3. Deployment
 Deploy charts to environments and test result
 ```bash
