@@ -60,9 +60,9 @@ cd ..
 ```
 Edit the following files:
 
-[charts/nginx-demo/values.yaml)](./charts/nginx-demo/values.yaml)
-[charts/nginx-demo/templates/deployment.yaml](./charts/nginx-demo/templates/deployment.yaml)
-[charts/nginx-demo/templates/secret.yaml](./charts/nginx-demo/templates/secret.yaml)
+[charts/nginx-demo/values.yaml)](./charts/nginx-demo/values.yaml) 
+[charts/nginx-demo/templates/deployment.yaml](./charts/nginx-demo/templates/deployment.yaml) 
+[charts/nginx-demo/templates/secret.yaml](./charts/nginx-demo/templates/secret.yaml) 
 
 Create and encrypt secrets
 ```
