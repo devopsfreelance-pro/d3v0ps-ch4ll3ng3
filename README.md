@@ -45,7 +45,6 @@ sudo dpkg -i sops_3.7.3_amd64.deb
 ## 2. Development
 Create Git repository
 ```bash
-cd github
 git clone git@github.com:devopsfreelance-pro/d3v0ps-ch4ll3ng3.git
 cd d3v0ps-ch4ll3ng3
 git branch 1st-approach
