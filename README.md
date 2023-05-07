@@ -64,7 +64,7 @@ vim [charts/nginx-demo/values.yaml](./charts/nginx-demo/values.yaml) \
 vim [charts/nginx-demo/templates/deployment.yaml](./charts/nginx-demo/templates/deployment.yaml) \
 vim [charts/nginx-demo/templates/secret.yaml](./charts/nginx-demo/templates/secret.yaml) 
 
-Create and encrypt secrets
+Create and encrypt secrets 
 vim secrets.dev.yaml
 
 ```yaml
@@ -81,7 +81,8 @@ sops --encrypt --pgp 68AFCD306987C84BD62148D2A7F4F618DC55EA8D  secrets.stage.yam
 rm secrets.dev.yaml
 rm secrets.stage.yaml
 ```
-Create helmfile and  custom values
+Create helmfile and  custom values \
+
 vim [helmfile.yaml](./helmfile.yaml) \
 vim [values.stage.yaml](./values.stage.yaml) \
 vim [values.dev.yaml](./values.dev.yaml)
