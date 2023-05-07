@@ -57,7 +57,7 @@ mkdir charts
 cd charts
 helm create nginx-demo
 cd ..
-vim charts/nginx-demo/values.yaml
+vim [link](charts/nginx-demo/values.yaml)
 vim charts/nginx-demo/templates/deployment.yaml
 vim charts/nginx-demo/templates/secret.yaml
 ```
